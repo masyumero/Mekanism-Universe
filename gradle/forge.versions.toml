@@ -6,6 +6,14 @@ jei = "15.20.0.105"
 emi = "1.1.13+1.20.1"
 jade = "5390389" # 11.9.3
 
+mekanism = "1.20.1-10.4.16.80"
+mekanismElements = "6537553" # 2.3
+mekanismExtras = "6936409" # 1.4.6
+igleelib = "6987117" # 1.2.7
+evolvedMekanism = "7161181" # 1.2.1
+mekanismMoreMachine = "6220155" # 1.0
+evolvedMekanismExtras = "7466728" # 1.3.5
+
 [libraries]
 mixinExtras-common      = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixinExtras" }
 
@@ -15,6 +23,14 @@ jei-forge-api           = { module = "mezz.jei:jei-1.20.1-forge-api", version.re
 jei-forge-impl          = { module = "mezz.jei:jei-1.20.1-forge", version.ref = "jei" }
 emi                     = { module = "dev.emi:emi-forge", version.ref = "emi"}
 jade                    = { module = "curse.maven:jade-324717", version.ref = "jade"}
+
+mekanism                = { module = "mekanism:Mekanism", version.ref = "mekanism" }
+mekanismElements         = { module = "curse.maven:mekanism-elements-1103224", version.ref = "mekanismElements"}
+mekanismExtras          = { module = "curse.maven:mekanism-extras-1026040", version.ref = "mekanismExtras" }
+igleelib                = { module = "curse.maven:iglee-library-541199", version.ref = "igleelib" }
+evolvedMekanism         = { module = "curse.maven:evolved-mekanism-1230085", version.ref = "evolvedMekanism" }
+mekanismMoreMachine     = { module = "curse.maven:mekansim-more-machine-1205233", version.ref = "mekanismMoreMachine" }
+evolvedMekanismExtras   = { module = "curse.maven:evolved-mekanism-extras-1268159", version.ref = "evolvedMekanismExtras" }
 
 [bundles]
 jei = ["jei-common-api", "jei-forge-api", "jei-forge-impl"]
