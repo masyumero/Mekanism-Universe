@@ -1,0 +1,23 @@
+dependencies {
+    // Annotations
+    compileOnly(libs.jetbrains.annotations)
+
+    // Mixin
+    annotationProcessor(variantOf(libs.mixin) { classifier("processor") })
+    //api(annotationProcessor(forge.mixinExtras.common.get()))
+
+    modImplementation(forge.bundles.mekanism)
+
+    modImplementation(forge.mekanismElements)
+    modImplementation(forge.mekanismExtras)
+    modImplementation(forge.evolvedMekanism)
+    modImplementation(forge.evolvedMekanismExtras)
+    modImplementation(forge.mekanismMoreMachine)
+    modRuntimeOnly(forge.igleelib)
+
+    // JEI, EMI, Jade
+    modCompileOnly(forge.bundles.jei)
+    modImplementation(forge.emi)
+    modRuntimeOnly(forge.jei.forge.impl)
+    modRuntimeOnly(forge.jade)
+}

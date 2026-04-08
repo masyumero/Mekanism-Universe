@@ -1,0 +1,16 @@
+{
+  "block.mekuniverse.contained_universe_reactor_casing": "Contained Universe Reactor Casing",
+  "block.mekuniverse.contained_universe_reactor_controller": "Contained Universe Reactor Controller",
+  "block.mekuniverse.contained_universe_reactor_port": "test",
+  "item.mekuniverse.energy_cluster": "Energy Cluster",
+  "item.mekuniverse.energy_compact_core": "Energy Compact Core",
+  "item.mekuniverse.energy_condense": "Energy Condense",
+  "item.mekuniverse.energy_core": "Energy Core",
+  "item.mekuniverse.energy_dense_core": "Energy Dense Core",
+  "item.mekuniverse.energy_gem": "Energy Gem",
+  "item.mekuniverse.energy_mass": "Energy Mass",
+  "item.mekuniverse.energy_singularity": "Energy Singularity",
+  "item.mekuniverse.small_solar_power_satellite": "Small Solar Power Satellite",
+  "item.mekuniverse.solar_power_satellite_constellation": "Solar Power Satellite Constellation",
+  "tab.mekuniverse.main": "Mekanism:Universe"
+}

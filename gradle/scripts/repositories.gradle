@@ -1,0 +1,16 @@
+repositories {
+    mavenLocal()
+    maven { url 'https://modmaven.dev/' }
+    maven {
+        // Curse Forge File
+        url "https://cursemaven.com/"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        // EMI
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
+}

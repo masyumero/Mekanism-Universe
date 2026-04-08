@@ -1,0 +1,35 @@
+String getConfig(String key) {
+    return project.properties.get(key)
+}
+
+def mod_id = getConfig("mod_id")
+def mod_license = getConfig("mod_license")
+def mod_name = getConfig("mod_name")
+def mod_version = getConfig("mod_version")
+def mod_authors = getConfig("mod_authors")
+def mod_description = getConfig("mod_description")
+
+tasks.register('printVersion') {
+    doLast {
+        println mod_version
+    }
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            minecraft_version        : libs.versions.minecraft.get(),
+            forge_version            : libs.versions.minecraftForge.get(),
+            mod_id                   : mod_id,
+            mod_name                 : mod_name,
+            mod_license              : mod_license,
+            mod_version              : mod_version,
+            mod_authors              : mod_authors,
+            mod_description          : mod_description
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+sourceSets.main.resources.srcDir generateModMetadata
+legacyForge.ideSyncTask generateModMetadata

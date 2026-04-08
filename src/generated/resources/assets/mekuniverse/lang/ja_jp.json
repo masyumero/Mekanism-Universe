@@ -1,0 +1,14 @@
+{
+  "block.mekuniverse.contained_universe_reactor_casing": "宇宙封入炉ケーシング",
+  "block.mekuniverse.contained_universe_reactor_controller": "宇宙封入炉制御装置",
+  "item.mekuniverse.energy_cluster": "エナジークラスター",
+  "item.mekuniverse.energy_compact_core": "エナジーコンパクトコア",
+  "item.mekuniverse.energy_condense": "エナジーコンデンス",
+  "item.mekuniverse.energy_core": "エナジーコア",
+  "item.mekuniverse.energy_dense_core": "エナジー高密コア",
+  "item.mekuniverse.energy_gem": "エナジージェム",
+  "item.mekuniverse.energy_mass": "エナジーマス",
+  "item.mekuniverse.energy_singularity": "エナジーシンギュラリティ",
+  "item.mekuniverse.small_solar_power_satellite": "小型太陽光発電衛星",
+  "item.mekuniverse.solar_power_satellite_constellation": "太陽光発電衛星群"
+}
