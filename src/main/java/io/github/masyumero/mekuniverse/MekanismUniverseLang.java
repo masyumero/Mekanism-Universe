@@ -19,8 +19,12 @@ public enum MekanismUniverseLang implements ILangEntry {
     CONTAINED_UNIVERSE_REACTOR_PORT_MODE_INPUT("cu_reactor", "port_mode_input"),
     CONTAINED_UNIVERSE_REACTOR_PORT_MODE_OUTPUT_ENERGY("cu_reactor", "port_mode_output_energy"),
     CONTAINED_UNIVERSE_REACTOR_PORT_MODE_OUTPUT_HELIUM("cu_reactor", "port_mode_output_helium"),
-    CONTAINED_UNIVERSE_REACTOR_PORT__MODE_CHANGE("cu_reactor", "port_mode_change"),
+    CONTAINED_UNIVERSE_REACTOR_PORT_MODE_CHANGE("cu_reactor", "port_mode_change"),
     OUTPUT_TAB("cu_reactor", "output"),
+    CONTAINED_UNIVERSE_REACTOR_REQUEST_HYDROGEN("cu_reactor", "fuel.hydrogen"),
+    CONTAINED_UNIVERSE_REACTOR_REQUEST_HELIUM("cu_reactor", "fuel.helium"),
+    CONTAINED_UNIVERSE_REACTOR_TIER("cu_reactor", "output.tier"),
+    CONTAINED_UNIVERSE_REACTOR_SATELLITE("cu_reactor", "output.satellite"),
     FALL_VOID("cu_reactor", "void");
 
     private final String translationKey;

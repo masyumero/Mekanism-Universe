@@ -1,5 +1,6 @@
 package io.github.masyumero.mekuniverse.common.tile.multiblock;
 
+import io.github.masyumero.mekuniverse.MekanismUniverseLang;
 import io.github.masyumero.mekuniverse.common.block.attribute.AttributeStateCUReactorPortMode;
 import io.github.masyumero.mekuniverse.common.block.attribute.AttributeStateCUReactorPortMode.CUReactorPortMode;
 import io.github.masyumero.mekuniverse.common.content.universe_reactor.ContainedUniverseReactorMultiblockData;
@@ -9,7 +10,6 @@ import mekanism.api.chemical.gas.Gas;
 import mekanism.api.chemical.gas.GasStack;
 import mekanism.api.chemical.gas.IGasTank;
 import mekanism.api.text.EnumColor;
-import mekanism.common.MekanismLang;
 import mekanism.common.capabilities.holder.chemical.IChemicalTankHolder;
 import mekanism.common.capabilities.holder.energy.IEnergyContainerHolder;
 import mekanism.common.capabilities.holder.slot.IInventorySlotHolder;
@@ -87,7 +87,7 @@ public class TileEntityContainedUniverseReactorPort extends TileEntityContainedU
         if (!isRemote()) {
             CUReactorPortMode mode = getMode().getNext();
             setMode(mode);
-            player.displayClientMessage(MekanismLang.BOILER_VALVE_MODE_CHANGE.translateColored(EnumColor.GRAY, mode), true);
+            player.displayClientMessage(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_CHANGE.translateColored(EnumColor.GRAY, mode), true);
         }
         return InteractionResult.SUCCESS;
     }

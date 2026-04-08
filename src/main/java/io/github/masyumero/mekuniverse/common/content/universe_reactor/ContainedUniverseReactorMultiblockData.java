@@ -37,6 +37,8 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     public static final String FUEL_TAB = "fuel";
 
     private static final int TIER_LIMIT = 26;
+    private static final FloatingLong BASE_USE_ENERGY = FloatingLong.create(1_073_741_824L);
+    private static final long BASE_HELIUM_GENERATION = 4_000L;
 
     @ContainerSync
     @Getter
@@ -82,7 +84,7 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     @Getter
     @Setter
     private long requestHeliumAmount;
-    private final FloatingLong useEnergyAmount = FloatingLong.create(1073741824);
+    private final FloatingLong useEnergyAmount = BASE_USE_ENERGY.multiply(tier * 1_000L);
     private final long useAntimatterAmount = 100_000L;
 
     private AABB deathZone;
@@ -166,10 +168,10 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
 
             if (hasSatellite()) {
                 if (getSatelliteCount() < getTier()) {
-                    heliumOutputTank.insert(MSGases.HELIUM.getStack(4000L * getSatelliteCount()), Action.EXECUTE, AutomationType.INTERNAL);
+                    heliumOutputTank.insert(MSGases.HELIUM.getStack(BASE_HELIUM_GENERATION * getSatelliteCount()), Action.EXECUTE, AutomationType.INTERNAL);
                     energyOutputContainer.insert(FloatingLong.create(Math.pow(4, getSatelliteCount())), Action.EXECUTE, AutomationType.INTERNAL);
                 } else if (getSatelliteCount() >= getTier() && getTier() > 0) {
-                    heliumOutputTank.insert(MSGases.HELIUM.getStack(4000L * getTier()), Action.EXECUTE, AutomationType.INTERNAL);
+                    heliumOutputTank.insert(MSGases.HELIUM.getStack(BASE_HELIUM_GENERATION * getTier()), Action.EXECUTE, AutomationType.INTERNAL);
                     energyOutputContainer.insert(FloatingLong.create(Math.pow(4, getTier())), Action.EXECUTE, AutomationType.INTERNAL);
                 }
             }
@@ -198,20 +200,20 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
 
     private void consumeMaterialToStar() {
         energyContainer.extract(useEnergyAmount, Action.EXECUTE, AutomationType.INTERNAL);
-        hydrogenTank.shrinkStack(requestHydrogenAmount / 2, Action.EXECUTE);
-        heliumTank.shrinkStack(requestHeliumAmount / 2, Action.EXECUTE);
+        hydrogenTank.extract(requestHydrogenAmount / 2, Action.EXECUTE, AutomationType.INTERNAL);
+        heliumTank.extract(requestHeliumAmount / 2, Action.EXECUTE, AutomationType.INTERNAL);
         setActive(true);
     }
 
     private void consumeMaterialToVoid() {
-        antimatterTank.shrinkStack(useAntimatterAmount, Action.EXECUTE);
-        reactorSlot.shrinkStack(1, Action.EXECUTE);
+        antimatterTank.extract(useAntimatterAmount, Action.EXECUTE, AutomationType.INTERNAL);
+        reactorSlot.extractItem(1, Action.EXECUTE, AutomationType.INTERNAL);
         setFieldActive(true);
     }
 
     private void updateRequestGasesAmount() {
-        setRequestHydrogenAmount(896L * (1L << (2 * (tier + 1))));
-        setRequestHeliumAmount(384L * (1L << (2 * (tier + 1))));
+        setRequestHydrogenAmount(896L * (1L << (2 * (tier))));
+        setRequestHeliumAmount(384L * (1L << (2 * (tier))));
     }
 
     public void setActive(boolean active) {
@@ -260,17 +262,15 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
         if (current) {
             if (hasSatellite()) {
                 if (getSatelliteCount() < getTier()) {
-                    return 4000L * getSatelliteCount();
+                    return BASE_HELIUM_GENERATION * getSatelliteCount();
                 } else if (getSatelliteCount() >= getTier() && getTier() > 0) {
-                    return 4000L * getTier();
+                    return BASE_HELIUM_GENERATION * getTier();
                 }
             }
         }
         if (getTier() == 0) {
             return 0;
         }
-        return 4000L * getTier();
+        return BASE_HELIUM_GENERATION * getTier();
     }
-
-
 }

@@ -1,5 +1,6 @@
 package io.github.masyumero.mekuniverse.client.gui;
 
+import io.github.masyumero.mekuniverse.MekanismUniverseLang;
 import io.github.masyumero.mekuniverse.client.gui.element.GuiContainedUniverseReactorTab;
 import io.github.masyumero.mekuniverse.client.gui.element.GuiContainedUniverseReactorTab.ContainedUniverseReactorTab;
 import io.github.masyumero.mekuniverse.common.content.universe_reactor.ContainedUniverseReactorMultiblockData;
@@ -32,8 +33,8 @@ public class GuiContainedUniverseReactorOutput extends GuiContainedUniverseReact
         addRenderableWidget(new GuiGasGauge(() -> tile.getMultiblock().heliumOutputTank, () -> tile.getMultiblock().getGasTanks(null), GaugeType.WIDE, this, 90, 25));
         addRenderableWidget(new GuiInnerScreen(this, 20, 90, 136, 46, () -> {
             ContainedUniverseReactorMultiblockData multiblock = tile.getMultiblock();
-            return List.of(Component.literal("Tier:" + multiblock.getTier()),
-                    Component.literal("Satellite:" + multiblock.getSatelliteCount()),
+            return List.of(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER.translate(multiblock.getTier()),
+                    MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_SATELLITE.translate(multiblock.getSatelliteCount()),
                     GeneratorsLang.REACTOR_PASSIVE_RATE.translate(EnergyDisplay.of(multiblock.getPassiveGeneration(true))),
                     GeneratorsLang.REACTOR_STEAM_PRODUCTION.translate(TextUtils.format(multiblock.getHeliumPerTick(true))));
         }));
