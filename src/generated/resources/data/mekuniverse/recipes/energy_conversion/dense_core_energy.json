@@ -1,0 +1,9 @@
+{
+  "type": "mekanism:energy_conversion",
+  "input": {
+    "ingredient": {
+      "item": "mekuniverse:dense_core_energy"
+    }
+  },
+  "output": 2869781400000
+}

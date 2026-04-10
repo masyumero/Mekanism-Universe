@@ -1,0 +1,9 @@
+{
+  "type": "mekanism:energy_conversion",
+  "input": {
+    "ingredient": {
+      "item": "mekuniverse:singularity_energy"
+    }
+  },
+  "output": 232452293400000
+}

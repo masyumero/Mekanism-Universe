@@ -1,0 +1,9 @@
+{
+  "type": "mekanism:energy_conversion",
+  "input": {
+    "ingredient": {
+      "item": "mekuniverse:gem_energy"
+    }
+  },
+  "output": 48600000
+}

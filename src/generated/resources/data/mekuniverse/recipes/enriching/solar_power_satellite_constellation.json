@@ -1,0 +1,12 @@
+{
+  "type": "mekanism:enriching",
+  "input": {
+    "amount": 64,
+    "ingredient": {
+      "item": "mekuniverse:small_solar_power_satellite"
+    }
+  },
+  "output": {
+    "item": "mekuniverse:solar_power_satellite_constellation"
+  }
+}

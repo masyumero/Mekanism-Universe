@@ -1,0 +1,9 @@
+{
+  "type": "mekanism:energy_conversion",
+  "input": {
+    "ingredient": {
+      "item": "mekuniverse:cluster_energy"
+    }
+  },
+  "output": 437400000
+}
