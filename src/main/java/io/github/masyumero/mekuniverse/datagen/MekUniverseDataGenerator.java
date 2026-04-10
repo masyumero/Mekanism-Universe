@@ -9,9 +9,13 @@ import io.github.masyumero.mekuniverse.datagen.client.lang.MekUniverseJapaneseLa
 import io.github.masyumero.mekuniverse.datagen.client.lang.MekUniverseLangProvider;
 import io.github.masyumero.mekuniverse.datagen.client.models.block.MekUniverseBlockModelProvider;
 import io.github.masyumero.mekuniverse.datagen.client.models.item.MekUniverseItemModelProvider;
+import io.github.masyumero.mekuniverse.datagen.data.loot.MekUniverseLootProvider;
 import io.github.masyumero.mekuniverse.datagen.data.recipe.impl.MekUniverseRecipeProvider;
+import io.github.masyumero.mekuniverse.datagen.data.registries.MekUniverseDatapackRegistryProvider;
+import io.github.masyumero.mekuniverse.datagen.data.tag.MekUniverseTagProvider;
 import mekanism.common.Mekanism;
 import net.minecraft.Util;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -42,6 +46,8 @@ public class MekUniverseDataGenerator {
         DataGenerator gen = event.getGenerator();
         PackOutput output = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        MekUniverseDatapackRegistryProvider drProvider = new MekUniverseDatapackRegistryProvider(output, event.getLookupProvider());
+        CompletableFuture<HolderLookup.Provider> lookupProvider = drProvider.getRegistryProvider();
         //Client side data generators
         addProvider(gen, event.includeClient(), MekUniverseLangProvider::new);
         addProvider(gen, event.includeClient(), MekUniverseJapaneseLangProvider::new);
@@ -49,6 +55,8 @@ public class MekUniverseDataGenerator {
         gen.addProvider(event.includeClient(), new MekUniverseItemModelProvider(output, existingFileHelper));
         //Server side data generators
         gen.addProvider(event.includeServer(), new MekUniverseRecipeProvider(output, existingFileHelper));
+        gen.addProvider(event.includeServer(), new MekUniverseTagProvider(output, lookupProvider, existingFileHelper));
+        addProvider(gen, event.includeServer(), MekUniverseLootProvider::new);
     }
 
     public static <PROVIDER extends DataProvider> void addProvider(DataGenerator gen, boolean run, DataProvider.Factory<PROVIDER> factory) {

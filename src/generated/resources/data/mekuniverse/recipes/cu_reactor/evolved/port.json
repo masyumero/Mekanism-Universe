@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "emextras"
+          }
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "evolvedmekanism"
+        }
+      ]
+    }
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:circuits/multiversal"
+    },
+    "F": {
+      "item": "mekuniverse:contained_universe_reactor_casing"
+    }
+  },
+  "pattern": [
+    " F ",
+    "FCF",
+    " F "
+  ],
+  "result": {
+    "item": "mekuniverse:contained_universe_reactor_port"
+  }
+}

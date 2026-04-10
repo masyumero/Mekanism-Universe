@@ -10,6 +10,8 @@ import io.github.masyumero.mekuniverse.datagen.data.recipe.pattern.Pattern;
 import io.github.masyumero.mekuniverse.datagen.data.recipe.pattern.RecipePattern;
 import mekanism.api.annotations.NothingNullByDefault;
 import mekanism.common.registration.impl.ItemRegistryObject;
+import mekanism.common.registries.MekanismItems;
+import mekanism.generators.common.registries.GeneratorsItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.level.ItemLike;
@@ -20,6 +22,9 @@ import java.util.function.Consumer;
 
 @NothingNullByDefault
 public class MekUniverseRecipeProvider extends BaseRecipeProvider {
+
+    public static final char TANK = 'T';
+    public static final char CASING = 'F';
 
     private final RecipePattern energyPattern = RecipePattern.createPattern(
             RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.CONSTANT, Pattern.CONSTANT),
@@ -46,7 +51,7 @@ public class MekUniverseRecipeProvider extends BaseRecipeProvider {
     }
 
     private void addMisc(Consumer<FinishedRecipe> consumer) {
-        //energy
+        //Energy
         compressEnergy(MekUniverseItems.GEM_ENERGY, MMItems.CRYSTAL_ENERGY, consumer);
         compressEnergy(MekUniverseItems.CLUSTER_ENERGY, MekUniverseItems.GEM_ENERGY, consumer);
         compressEnergy(MekUniverseItems.MASS_ENERGY, MekUniverseItems.CLUSTER_ENERGY, consumer);
@@ -55,13 +60,24 @@ public class MekUniverseRecipeProvider extends BaseRecipeProvider {
         compressEnergy(MekUniverseItems.DENSE_CORE_ENERGY, MekUniverseItems.CORE_ENERGY, consumer);
         compressEnergy(MekUniverseItems.COMPACT_CORE_ENERGY, MekUniverseItems.DENSE_CORE_ENERGY, consumer);
         compressEnergy(MekUniverseItems.SINGULARITY_ENERGY, MekUniverseItems.COMPACT_CORE_ENERGY, consumer);
+
+        //Satellite
+        ExtendedShapedRecipeBuilder.shapedRecipe(MekUniverseItems.SMALL_SOLAR_POWER_SATELLITE)
+                .pattern(RecipePattern.createPattern(
+                        RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.OTHER, Pattern.CONSTANT),
+                        RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.ENERGY, Pattern.CONSTANT),
+                        RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.EMPTY, Pattern.CONSTANT)
+                ))
+                .key(Pattern.CONSTANT, GeneratorsItems.SOLAR_PANEL)
+                .key(Pattern.OTHER, MekanismItems.ROBIT)
+                .key(Pattern.ENERGY, MekanismItems.MODULE_ENERGY)
+                .build(consumer, MekanismUniverse.rl("crafting/" + MekUniverseItems.SMALL_SOLAR_POWER_SATELLITE.getName()));
     }
 
     private void compressEnergy(ItemRegistryObject<?> toItem, ItemLike fromItem, Consumer<FinishedRecipe> consumer) {
-        String basePath = "crafting/";
         ExtendedShapedRecipeBuilder.shapedRecipe(toItem)
                 .pattern(energyPattern)
                 .key(Pattern.CONSTANT, fromItem)
-                .build(consumer, MekanismUniverse.rl(basePath + toItem.getName()));
+                .build(consumer, MekanismUniverse.rl("crafting/" + toItem.getName()));
     }
 }

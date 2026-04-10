@@ -1,0 +1,17 @@
+{
+  "type": "mekanism:nucleosynthesizing",
+  "duration": 20000,
+  "gasInput": {
+    "amount": 10000,
+    "gas": "mekanism:antimatter"
+  },
+  "itemInput": {
+    "amount": 64,
+    "ingredient": {
+      "item": "mekanism:teleportation_core"
+    }
+  },
+  "output": {
+    "item": "mekuniverse:contained_universe_reactor_casing"
+  }
+}

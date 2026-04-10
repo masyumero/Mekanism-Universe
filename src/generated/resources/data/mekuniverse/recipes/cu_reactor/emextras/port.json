@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "emextras"
+    }
+  ],
+  "key": {
+    "C": {
+      "item": "emextras:infinite_multiversal_control_circuit"
+    },
+    "F": {
+      "item": "mekuniverse:contained_universe_reactor_casing"
+    }
+  },
+  "pattern": [
+    " F ",
+    "FCF",
+    " F "
+  ],
+  "result": {
+    "item": "mekuniverse:contained_universe_reactor_port"
+  }
+}

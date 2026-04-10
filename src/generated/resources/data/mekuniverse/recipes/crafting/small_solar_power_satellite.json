@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "mekanismgenerators:solar_panel"
+    },
+    "E": {
+      "item": "mekanism:module_energy_unit"
+    },
+    "O": {
+      "item": "mekanism:robit"
+    }
+  },
+  "pattern": [
+    "#O#",
+    "#E#",
+    "# #"
+  ],
+  "result": {
+    "item": "mekuniverse:small_solar_power_satellite"
+  }
+}

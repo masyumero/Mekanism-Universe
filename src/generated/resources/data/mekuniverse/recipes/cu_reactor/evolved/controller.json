@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "emextras"
+          }
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "evolvedmekanism"
+        }
+      ]
+    }
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:circuits/multiversal"
+    },
+    "F": {
+      "item": "mekuniverse:contained_universe_reactor_casing"
+    },
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "T": {
+      "item": "evolvedmekanism:multiversal_chemical_tank"
+    }
+  },
+  "pattern": [
+    "CGC",
+    "FTF",
+    "FFF"
+  ],
+  "result": {
+    "item": "mekuniverse:contained_universe_reactor_controller"
+  }
+}

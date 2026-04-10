@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "emextras"
+    }
+  ],
+  "key": {
+    "C": {
+      "item": "emextras:infinite_multiversal_control_circuit"
+    },
+    "F": {
+      "item": "mekuniverse:contained_universe_reactor_casing"
+    },
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "T": [
+      {
+        "item": "evolvedmekanism:multiversal_chemical_tank"
+      },
+      {
+        "item": "mekanism_extras:infinite_chemical_tank"
+      }
+    ]
+  },
+  "pattern": [
+    "CGC",
+    "FTF",
+    "FFF"
+  ],
+  "result": {
+    "item": "mekuniverse:contained_universe_reactor_controller"
+  }
+}
