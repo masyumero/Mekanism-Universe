@@ -13,7 +13,7 @@ public interface MekUniverseItems {
     ItemDeferredRegister ITEMS = new ItemDeferredRegister(MekanismUniverse.MODID);
 
     ItemRegistryObject<Item> SMALL_SOLAR_POWER_SATELLITE = ITEMS.register("small_solar_power_satellite");
-    ItemRegistryObject<Item> SOLAR_POWER_SATELLITE_CONSTELLATION = ITEMS.register("solar_power_satellite_constellation", properties -> new Item(properties.stacksTo(4)));
+    ItemRegistryObject<Item> SOLAR_POWER_SATELLITE_CONSTELLATION = ITEMS.register("solar_power_satellite_constellation");
 
     ItemRegistryObject<EnergyItem> GEM_ENERGY = ITEMS.register("gem_energy", properties ->  new EnergyItem(properties.rarity(Rarity.UNCOMMON)));
     ItemRegistryObject<EnergyItem> CLUSTER_ENERGY = ITEMS.register("cluster_energy", properties ->  new EnergyItem(properties.rarity(Rarity.UNCOMMON)));
