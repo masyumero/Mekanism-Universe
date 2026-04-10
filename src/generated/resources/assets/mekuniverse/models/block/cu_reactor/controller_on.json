@@ -1,0 +1,6 @@
+{
+  "parent": "mekuniverse:block/cu_reactor/controller",
+  "textures": {
+    "up": "mekuniverse:block/cu_reactor_controller_on"
+  }
+}

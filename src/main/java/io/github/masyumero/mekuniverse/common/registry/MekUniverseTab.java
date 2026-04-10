@@ -10,9 +10,10 @@ import net.minecraftforge.eventbus.api.IEventBus;
 public class MekUniverseTab {
 
     public static final CreativeTabDeferredRegister TAB = new CreativeTabDeferredRegister(MekanismUniverse.MODID, MekUniverseTab::addToExistingTabs);
-    public static final CreativeTabRegistryObject MEKANISM_UNIVERSE_TAB = TAB.registerMain(MekanismUniverseLang.MAIN_TAB, MekUniverseItems.ENERGY_SINGULARITY, builder ->
+    public static final CreativeTabRegistryObject MEKANISM_UNIVERSE_TAB = TAB.registerMain(MekanismUniverseLang.MAIN_TAB, MekUniverseItems.SINGULARITY_ENERGY, builder ->
             builder.displayItems((displayParameters, output) -> {
                 CreativeTabDeferredRegister.addToDisplay(MekUniverseItems.ITEMS, output);
+                CreativeTabDeferredRegister.addToDisplay(MekUniverseBlocks.BLOCKS, output);
             })
     );
 

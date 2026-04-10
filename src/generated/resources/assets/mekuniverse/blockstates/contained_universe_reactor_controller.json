@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "mekuniverse:block/cu_reactor/controller"
+    },
+    "active=true": {
+      "model": "mekuniverse:block/cu_reactor/controller_on"
+    }
+  }
+}

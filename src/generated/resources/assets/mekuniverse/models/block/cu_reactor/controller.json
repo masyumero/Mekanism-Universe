@@ -1,0 +1,8 @@
+{
+  "parent": "mekanism:block/machine",
+  "textures": {
+    "front": "mekuniverse:block/cu_reactor_casing",
+    "sides": "mekuniverse:block/cu_reactor_casing",
+    "up": "mekuniverse:block/cu_reactor_controller"
+  }
+}

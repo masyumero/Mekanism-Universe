@@ -80,9 +80,11 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     private int tier;
     @Getter
     @Setter
+    @ContainerSync
     private long requestHydrogenAmount;
     @Getter
     @Setter
+    @ContainerSync
     private long requestHeliumAmount;
     private final FloatingLong useEnergyAmount = BASE_USE_ENERGY.multiply(tier * 1_000L);
     private final long useAntimatterAmount = 100_000L;
@@ -95,11 +97,11 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
 
         gasTanks.add(hydrogenTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> capcapcap, gas -> gas == MekanismGases.HYDROGEN.getChemical(), createSaveAndComparator()));
         gasTanks.add(heliumTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> capcapcap, gas -> gas == MSGases.HELIUM.getChemical(), createSaveAndComparator()));
-        gasTanks.add(antimatterTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> capcapcap, gas -> gas == MekanismGases.ANTIMATTER.getChemical(), createSaveAndComparator()));
+        gasTanks.add(antimatterTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> useAntimatterAmount, gas -> gas == MekanismGases.ANTIMATTER.getChemical(), createSaveAndComparator()));
         gasTanks.add(heliumOutputTank = MultiblockChemicalTankBuilder.GAS.output(this, () -> capcapcap, gas -> gas == MSGases.HELIUM.getChemical(), this));
         energyContainers.add(energyContainer = VariableCapacityEnergyContainer.create(FloatingLong.create(capcapcap), this));
         energyContainers.add(energyOutputContainer = VariableCapacityEnergyContainer.output(FloatingLong.create(capcapcap), this));
-        inventorySlots.add(reactorSlot = CUReactorInventorySlot.at(stack -> stack.getItem() == MekUniverseItems.ENERGY_DENSE_CORE.asItem(), this, 80, 39));
+        inventorySlots.add(reactorSlot = CUReactorInventorySlot.at(stack -> stack.getItem() == MekUniverseItems.DENSE_CORE_ENERGY.asItem(), this, 80, 39));
         inventorySlots.add(reactorSatelliteSlot = CUReactorInventorySlot.at(stack -> stack.getItem() == MekUniverseItems.SOLAR_POWER_SATELLITE_CONSTELLATION.asItem(), this, 80, 59));
     }
 
@@ -128,7 +130,7 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     private boolean hasDenseCore() {
         if (!reactorSlot.isEmpty()) {
             ItemStack denseCore = reactorSlot.getStack();
-            return denseCore.getItem() == MekUniverseItems.ENERGY_DENSE_CORE.asItem();
+            return denseCore.getItem() == MekUniverseItems.DENSE_CORE_ENERGY.asItem();
         }
         return false;
     }
@@ -167,6 +169,9 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
             }
 
             if (hasSatellite()) {
+                if (world.getRandom().nextInt(100000) == 0) {
+                    reactorSatelliteSlot.extractItem(1, Action.EXECUTE, AutomationType.INTERNAL);
+                }
                 if (getSatelliteCount() < getTier()) {
                     heliumOutputTank.insert(MSGases.HELIUM.getStack(BASE_HELIUM_GENERATION * getSatelliteCount()), Action.EXECUTE, AutomationType.INTERNAL);
                     energyOutputContainer.insert(FloatingLong.create(Math.pow(4, getSatelliteCount())), Action.EXECUTE, AutomationType.INTERNAL);
@@ -178,13 +183,13 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
         }
 
         if (isFieldActive()) {
-            fallVoid(world);
+            fellVoid(world);
         }
 
         return needsPacket;
     }
 
-    private void fallVoid(Level world) {
+    private void fellVoid(Level world) {
         if (world.getRandom().nextInt() % 20 != 0) {
             return;
         }
@@ -192,7 +197,7 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
 
         for (Entity entity : entities) {
             if (entity instanceof Player player) {
-                player.displayClientMessage(MekanismUniverseLang.FALL_VOID.translate(), true);
+                player.displayClientMessage(MekanismUniverseLang.FELL_VOID.translate(), true);
             }
             entity.teleportRelative(0, -10000, 0);
         }
@@ -250,6 +255,8 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
                 } else if (getSatelliteCount() >= getTier() && getTier() > 0) {
                     return FloatingLong.create(Math.pow(4, getTier()));
                 }
+            } else {
+                return FloatingLong.create(0);
             }
         }
         if (getTier() == 0) {
@@ -266,6 +273,8 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
                 } else if (getSatelliteCount() >= getTier() && getTier() > 0) {
                     return BASE_HELIUM_GENERATION * getTier();
                 }
+            } else {
+                return 0;
             }
         }
         if (getTier() == 0) {

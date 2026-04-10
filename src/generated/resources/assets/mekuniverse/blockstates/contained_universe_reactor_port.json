@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "mode=input": {
+      "model": "mekuniverse:block/cu_reactor/port_input"
+    },
+    "mode=output_energy": {
+      "model": "mekuniverse:block/cu_reactor/port_output_energy"
+    },
+    "mode=output_helium": {
+      "model": "mekuniverse:block/cu_reactor/port_output_helium"
+    }
+  }
+}

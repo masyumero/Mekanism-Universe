@@ -12,7 +12,6 @@ import mekanism.client.gui.element.gauge.GuiGasGauge;
 import mekanism.common.inventory.container.tile.EmptyTileContainer;
 import mekanism.common.util.text.EnergyDisplay;
 import mekanism.common.util.text.TextUtils;
-import mekanism.generators.common.GeneratorsLang;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -35,8 +34,8 @@ public class GuiContainedUniverseReactorOutput extends GuiContainedUniverseReact
             ContainedUniverseReactorMultiblockData multiblock = tile.getMultiblock();
             return List.of(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER.translate(multiblock.getTier()),
                     MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_SATELLITE.translate(multiblock.getSatelliteCount()),
-                    GeneratorsLang.REACTOR_PASSIVE_RATE.translate(EnergyDisplay.of(multiblock.getPassiveGeneration(true))),
-                    GeneratorsLang.REACTOR_STEAM_PRODUCTION.translate(TextUtils.format(multiblock.getHeliumPerTick(true))));
+                    MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE.translate(EnergyDisplay.of(multiblock.getPassiveGeneration(true))),
+                    MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_HELIUM_PRODUCTION.translate(TextUtils.format(multiblock.getHeliumPerTick(true))));
         }));
         addRenderableWidget(new GuiContainedUniverseReactorTab(this, tile, ContainedUniverseReactorTab.FUEL));
     }

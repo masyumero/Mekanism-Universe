@@ -25,7 +25,9 @@ public enum MekanismUniverseLang implements ILangEntry {
     CONTAINED_UNIVERSE_REACTOR_REQUEST_HELIUM("cu_reactor", "fuel.helium"),
     CONTAINED_UNIVERSE_REACTOR_TIER("cu_reactor", "output.tier"),
     CONTAINED_UNIVERSE_REACTOR_SATELLITE("cu_reactor", "output.satellite"),
-    FALL_VOID("cu_reactor", "void");
+    CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE("cu_reactor", "output.passive_generation"),
+    CONTAINED_UNIVERSE_REACTOR_HELIUM_PRODUCTION("cu_reactor", "output.production"),
+    FELL_VOID("cu_reactor", "void");
 
     private final String translationKey;
 

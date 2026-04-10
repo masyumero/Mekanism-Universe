@@ -7,6 +7,8 @@ import com.google.gson.JsonElement;
 import io.github.masyumero.mekuniverse.MekanismUniverse;
 import io.github.masyumero.mekuniverse.datagen.client.lang.MekUniverseJapaneseLangProvider;
 import io.github.masyumero.mekuniverse.datagen.client.lang.MekUniverseLangProvider;
+import io.github.masyumero.mekuniverse.datagen.client.models.block.MekUniverseBlockModelProvider;
+import io.github.masyumero.mekuniverse.datagen.client.models.item.MekUniverseItemModelProvider;
 import mekanism.common.Mekanism;
 import net.minecraft.Util;
 import net.minecraft.data.CachedOutput;
@@ -42,6 +44,8 @@ public class MekUniverseDataGenerator {
         //Client side data generators
         addProvider(gen, event.includeClient(), MekUniverseLangProvider::new);
         addProvider(gen, event.includeClient(), MekUniverseJapaneseLangProvider::new);
+        gen.addProvider(event.includeClient(), new MekUniverseBlockModelProvider(output, existingFileHelper));
+        gen.addProvider(event.includeClient(), new MekUniverseItemModelProvider(output, existingFileHelper));
         //Server side data generators
     }
 

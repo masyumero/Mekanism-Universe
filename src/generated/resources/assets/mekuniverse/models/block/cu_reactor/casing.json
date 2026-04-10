@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "mekuniverse:block/cu_reactor_casing"
+  }
+}

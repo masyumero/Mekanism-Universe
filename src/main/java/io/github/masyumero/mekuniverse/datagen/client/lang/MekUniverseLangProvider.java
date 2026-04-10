@@ -47,14 +47,14 @@ public class MekUniverseLangProvider extends BaseLanguageProvider {
     private void addItem() {
         addENJP(MekUniverseItems.SMALL_SOLAR_POWER_SATELLITE, "小型太陽光発電衛星");
         addENJP(MekUniverseItems.SOLAR_POWER_SATELLITE_CONSTELLATION, "太陽光発電衛星群");
-        addENJP(MekUniverseItems.ENERGY_GEM, "エナジージェム");
-        addENJP(MekUniverseItems.ENERGY_CLUSTER, "エナジークラスター");
-        addENJP(MekUniverseItems.ENERGY_MASS, "エナジーマス");
-        addENJP(MekUniverseItems.ENERGY_CONDENSE, "エナジーコンデンス");
-        addENJP(MekUniverseItems.ENERGY_CORE, "エナジーコア");
-        addENJP(MekUniverseItems.ENERGY_DENSE_CORE, "エナジー高密コア");
-        addENJP(MekUniverseItems.ENERGY_COMPACT_CORE, "エナジーコンパクトコア");
-        addENJP(MekUniverseItems.ENERGY_SINGULARITY, "エナジーシンギュラリティ");
+        addENJP(MekUniverseItems.GEM_ENERGY, "Energy Gem", "エネルギーのジェム");
+        addENJP(MekUniverseItems.CLUSTER_ENERGY, "Energy Cluster", "エネルギーのクラスター");
+        addENJP(MekUniverseItems.MASS_ENERGY, "Energy Mass", "エネルギーの塊");
+        addENJP(MekUniverseItems.CONDENSE_ENERGY, "Energy Condense", "濃縮されたエネルギー");
+        addENJP(MekUniverseItems.CORE_ENERGY, "Energy Core", "エネルギーのコア");
+        addENJP(MekUniverseItems.DENSE_CORE_ENERGY, "Energy Dense Core", "エネルギーの高密コア");
+        addENJP(MekUniverseItems.COMPACT_CORE_ENERGY, "Energy Compact Core", "エネルギーのコンパクトコア");
+        addENJP(MekUniverseItems.SINGULARITY_ENERGY, "Energy Singularity", "エネルギーのシンギュラリティ");
     }
 
     private void addBlock() {
@@ -69,8 +69,10 @@ public class MekUniverseLangProvider extends BaseLanguageProvider {
 
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER, "Tier: %1$s", "恒星段階: %1$s");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_SATELLITE, "Satellite: %1$s", "衛星群: %1$s個");
-        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_REQUEST_HYDROGEN, "Request Hydrogen: %1$s", "水素要求量: %1$s");
-        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_REQUEST_HELIUM, "Request Helium: %1$s", "ヘリウム要求量: %1$s");
+        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE, "Passive Generation: %1$s/t", "発電量: %1$s/t");
+        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_HELIUM_PRODUCTION, "Helium Production: %1$s mB/t", "ヘリウムの生成量: %1$s mB/t");
+        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_REQUEST_HYDROGEN, "Request Hydrogen: %1$s mb/t", "水素要求量: %1$s mb/t");
+        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_REQUEST_HELIUM, "Request Helium: %1$s mb/t", "ヘリウム要求量: %1$s mb/t");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_CHANGE, "Port mode changed to: %1$s", "バルブモードを%1$sに変更しました");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_INPUT, "input only", "入力のみ");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_OUTPUT_HELIUM, "output helium", "ヘリウム出力");
@@ -79,6 +81,8 @@ public class MekUniverseLangProvider extends BaseLanguageProvider {
         addENJP(MekanismUniverseLang.DESCRIPTION_CONTAINED_UNIVERSE_REACTOR_CONTROLLER, "The controlling block for the entire Contained Universe Reactor structure.", "宇宙封入炉全体を制御するためのコントローラ。");
         addENJP(MekanismUniverseLang.DESCRIPTION_CONTAINED_UNIVERSE_REACTOR_CASING, "Reinforced framing that can be used in the Contained Universe Reactor multiblock.", "宇宙封入炉のマルチブロックを構成する強化された筐体です。");
         addENJP(MekanismUniverseLang.DESCRIPTION_CONTAINED_UNIVERSE_REACTOR_PORT, "A block of reinforced framing that is capable of managing both the gas and energy transfer of the Contained Universe Reactor.", "宇宙封入炉筐体の一つで、電力の出力燃料などの搬入を担います。");
+
+        addENJP(MekanismUniverseLang.FELL_VOID, "Fell into the void", "虚空に落ちた");
     }
 
     public record ENJP(String en, String jp) {
