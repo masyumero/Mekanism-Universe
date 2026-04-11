@@ -1,29 +1,20 @@
+# Mekanism:Universe
 
-Installation information
-=======
+This mod adds a new power generation method to Mekanism.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+# Contained Universe Reactor:
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+![image](https://media.forgecdn.net/attachments/description/1508234/description_71c0f5c1-c1cb-45ee-8bf2-917ab8e068b0.png) ![image](https://media.forgecdn.net/attachments/description/1508234/description_53d3410c-0c35-4ed2-9e25-f66bb3346223.png) ![image](https://media.forgecdn.net/attachments/description/1508234/description_5859935f-97cb-43fa-ab87-8cc5b10c5164.png)  
+The Contained Universe Reactor is a 13x13x13 multi-block.  
+It is powered by Antimatter and Energy Dense Core, and maintains the star by continuously supplying large amounts of Hydrogen and Helium.  
+A Solar Power Satellite Constellation is required to generate energy.  
+Additionally, there is a 1 in 100,000 chance that it will be consumed.  
+The star has 26 tiers, and its maximum power output is 1.80 PFE/t.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+# Contained Universe Reactor Consumption:
 
-Mapping Names:
-============
-The MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-MDG Legacy:
-==========
-This template uses [ModDevGradle Legacy](https://github.com/neoforged/ModDevGradle). Documentation can be found [here](https://github.com/neoforged/ModDevGradle/blob/main/LEGACY.md).
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+To activate the Contained Universe Reactor, you will need 100,000 mB of Antimatter and an Energy Dense Core.  
+To create and maintain a star, you must keep 896 mB of Hydrogen and 384 mB of Helium in your tanks.  
+A multiplier of 4^tier is applied to each of these values.  
+Additionally, since 1/4 of the required amount is consumed every tick, these resources will be depleted rapidly.  
+It also consumes 1073741824 \* (tier \* 1000) FE/t of power.

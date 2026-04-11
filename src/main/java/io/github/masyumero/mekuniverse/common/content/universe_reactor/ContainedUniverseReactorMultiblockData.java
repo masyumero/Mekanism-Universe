@@ -158,7 +158,7 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
                 incrementTier();
             }
 
-            if (energyContainer.getEnergy().greaterOrEqual(useEnergyAmount) && hydrogenTank.getStored() >= requestHydrogenAmount / 2 && heliumTank.getStored() >= requestHeliumAmount / 2) {
+            if (energyContainer.getEnergy().greaterOrEqual(useEnergyAmount) && hydrogenTank.getStored() >= requestHydrogenAmount / 4 && heliumTank.getStored() >= requestHeliumAmount / 4) {
                 consumeMaterialToStar();
             } else {
                 decrementTier();
@@ -205,8 +205,8 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
 
     private void consumeMaterialToStar() {
         energyContainer.extract(useEnergyAmount, Action.EXECUTE, AutomationType.INTERNAL);
-        hydrogenTank.extract(requestHydrogenAmount / 2, Action.EXECUTE, AutomationType.INTERNAL);
-        heliumTank.extract(requestHeliumAmount / 2, Action.EXECUTE, AutomationType.INTERNAL);
+        hydrogenTank.extract(requestHydrogenAmount / 4, Action.EXECUTE, AutomationType.INTERNAL);
+        heliumTank.extract(requestHeliumAmount / 4, Action.EXECUTE, AutomationType.INTERNAL);
         setActive(true);
     }
 
