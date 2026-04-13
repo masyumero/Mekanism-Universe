@@ -4,21 +4,15 @@ import io.github.masyumero.mekuniverse.common.registry.MekUniverseItems;
 import mekanism.api.IContentsListener;
 import mekanism.api.annotations.NothingNullByDefault;
 import mekanism.common.inventory.slot.BasicInventorySlot;
-import mekanism.common.inventory.warning.ISupportsWarning;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 @NothingNullByDefault
 public class CUReactorInventorySlot extends BasicInventorySlot {
-
-    private final int x;
-    private final int y;
-    private @Nullable Consumer<ISupportsWarning<?>> warningAdder;
 
     public static CUReactorInventorySlot at(Predicate<@NotNull ItemStack> validator, @Nullable IContentsListener listener, int x, int y) {
         Objects.requireNonNull(validator, "Item validity check cannot be null");
@@ -27,8 +21,6 @@ public class CUReactorInventorySlot extends BasicInventorySlot {
 
     protected CUReactorInventorySlot(Predicate<ItemStack> validator, IContentsListener listener, int x, int y) {
         super(notExternal, alwaysTrueBi, validator, listener, x, y);
-        this.x = x;
-        this.y = y;
     }
 
     @Override

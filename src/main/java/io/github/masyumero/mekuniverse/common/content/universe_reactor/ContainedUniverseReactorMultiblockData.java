@@ -3,6 +3,7 @@ package io.github.masyumero.mekuniverse.common.content.universe_reactor;
 import com.fxd927.mekanismelements.common.registries.MSGases;
 import io.github.masyumero.mekuniverse.MekanismUniverseLang;
 import io.github.masyumero.mekuniverse.api.NBTConstants;
+import io.github.masyumero.mekuniverse.common.config.MekUniverseLoadConfig;
 import io.github.masyumero.mekuniverse.common.inventory.slot.CUReactorInventorySlot;
 import io.github.masyumero.mekuniverse.common.registry.MekUniverseItems;
 import lombok.Getter;
@@ -36,9 +37,9 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     public static final String OUTPUT_TAB = "output";
     public static final String FUEL_TAB = "fuel";
 
-    private static final int TIER_LIMIT = 26;
-    private static final FloatingLong BASE_USE_ENERGY = FloatingLong.create(1_073_741_824L);
-    private static final long BASE_HELIUM_GENERATION = 4_000L;
+    private static final int TIER_LIMIT = MekUniverseLoadConfig.config.tierLimit.get();
+    private static final FloatingLong BASE_USE_ENERGY = MekUniverseLoadConfig.config.baseUseEnergy.get();
+    private static final long BASE_HELIUM_GENERATION = MekUniverseLoadConfig.config.baseHeliumGeneration.get();
 
     @ContainerSync
     @Getter
@@ -87,20 +88,18 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     @ContainerSync
     private long requestHeliumAmount;
     private final FloatingLong useEnergyAmount = BASE_USE_ENERGY.multiply(tier * 1_000L);
-    private final long useAntimatterAmount = 100_000L;
+    private final long useAntimatterAmount = MekUniverseLoadConfig.config.useAntimatterAmount.get();
 
     private AABB deathZone;
 
     public ContainedUniverseReactorMultiblockData(BlockEntity tile) {
         super(tile);
-        long capcapcap = Long.MAX_VALUE;
-
-        gasTanks.add(hydrogenTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> capcapcap, gas -> gas == MekanismGases.HYDROGEN.getChemical(), createSaveAndComparator()));
-        gasTanks.add(heliumTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> capcapcap, gas -> gas == MSGases.HELIUM.getChemical(), createSaveAndComparator()));
+        gasTanks.add(hydrogenTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> Long.MAX_VALUE, gas -> gas == MekanismGases.HYDROGEN.getChemical(), createSaveAndComparator()));
+        gasTanks.add(heliumTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> Long.MAX_VALUE, gas -> gas == MSGases.HELIUM.getChemical(), createSaveAndComparator()));
         gasTanks.add(antimatterTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> useAntimatterAmount, gas -> gas == MekanismGases.ANTIMATTER.getChemical(), createSaveAndComparator()));
-        gasTanks.add(heliumOutputTank = MultiblockChemicalTankBuilder.GAS.output(this, () -> capcapcap, gas -> gas == MSGases.HELIUM.getChemical(), this));
-        energyContainers.add(energyContainer = VariableCapacityEnergyContainer.create(FloatingLong.create(capcapcap), this));
-        energyContainers.add(energyOutputContainer = VariableCapacityEnergyContainer.output(FloatingLong.create(capcapcap), this));
+        gasTanks.add(heliumOutputTank = MultiblockChemicalTankBuilder.GAS.output(this, MekUniverseLoadConfig.config.heliumOutputTankCapacity, gas -> gas == MSGases.HELIUM.getChemical(), this));
+        energyContainers.add(energyContainer = VariableCapacityEnergyContainer.create(useEnergyAmount.multiply(4), this));
+        energyContainers.add(energyOutputContainer = VariableCapacityEnergyContainer.output(FloatingLong.MAX_VALUE, this));
         inventorySlots.add(reactorSlot = CUReactorInventorySlot.at(stack -> stack.getItem() == MekUniverseItems.DENSE_CORE_ENERGY.asItem(), this, 80, 39));
         inventorySlots.add(reactorSatelliteSlot = CUReactorInventorySlot.at(stack -> stack.getItem() == MekUniverseItems.SOLAR_POWER_SATELLITE_CONSTELLATION.asItem(), this, 80, 59));
     }
@@ -190,9 +189,14 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
     }
 
     private void fellVoid(Level world) {
+        if (!MekUniverseLoadConfig.config.voidFall.get()) {
+            return;
+        }
+
         if (world.getRandom().nextInt() % 20 != 0) {
             return;
         }
+
         List<Entity> entities = getWorld().getEntitiesOfClass(Entity.class, deathZone);
 
         for (Entity entity : entities) {
