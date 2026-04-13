@@ -67,6 +67,7 @@ public class MekUniverseLangProvider extends BaseLanguageProvider {
         add(MekanismUniverseLang.MAIN_TAB, "Mekanism:Universe");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR, "Contained Universe Reactor", "宇宙封入炉");
 
+        addENJP(MekanismUniverseLang.OUTPUT_TAB, "Output", "出力");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER, "Tier: %1$s", "恒星段階: %1$s");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_SATELLITE, "Satellite: %1$s", "衛星群: %1$s個");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE, "Passive Generation: %1$s/t", "発電量: %1$s/t");
@@ -77,7 +78,6 @@ public class MekUniverseLangProvider extends BaseLanguageProvider {
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_INPUT, "input only", "入力のみ");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_OUTPUT_HELIUM, "output helium", "ヘリウム出力");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PORT_MODE_OUTPUT_ENERGY, "output energy", "電力出力");
-        //Fusion Reactor
         addENJP(MekanismUniverseLang.DESCRIPTION_CONTAINED_UNIVERSE_REACTOR_CONTROLLER, "The controlling block for the entire Contained Universe Reactor structure.", "宇宙封入炉全体を制御するためのコントローラ。");
         addENJP(MekanismUniverseLang.DESCRIPTION_CONTAINED_UNIVERSE_REACTOR_CASING, "Reinforced framing that can be used in the Contained Universe Reactor multiblock.", "宇宙封入炉のマルチブロックを構成する強化された筐体です。");
         addENJP(MekanismUniverseLang.DESCRIPTION_CONTAINED_UNIVERSE_REACTOR_PORT, "A block of reinforced framing that is capable of managing both the gas and energy transfer of the Contained Universe Reactor.", "宇宙封入炉筐体の一つで、電力の出力燃料などの搬入を担います。");

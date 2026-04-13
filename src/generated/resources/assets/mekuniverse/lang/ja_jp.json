@@ -5,6 +5,7 @@
   "cu_reactor.mekuniverse.contained_universe_reactor": "宇宙封入炉",
   "cu_reactor.mekuniverse.fuel.helium": "ヘリウム要求量: %1$s mb/t",
   "cu_reactor.mekuniverse.fuel.hydrogen": "水素要求量: %1$s mb/t",
+  "cu_reactor.mekuniverse.output": "出力",
   "cu_reactor.mekuniverse.output.passive_generation": "発電量: %1$s/t",
   "cu_reactor.mekuniverse.output.production": "ヘリウムの生成量: %1$s mB/t",
   "cu_reactor.mekuniverse.output.satellite": "衛星群: %1$s個",
