@@ -30,9 +30,10 @@ public class GuiContainedUniverseReactorOutput extends GuiContainedUniverseReact
         super.addGuiElements();
         addRenderableWidget(new GuiEnergyGauge(tile.getMultiblock().energyOutputContainer, GaugeType.WIDE, this, 20, 25));
         addRenderableWidget(new GuiGasGauge(() -> tile.getMultiblock().heliumOutputTank, () -> tile.getMultiblock().getGasTanks(null), GaugeType.WIDE, this, 90, 25));
-        addRenderableWidget(new GuiInnerScreen(this, 20, 90, 136, 46, () -> {
+        addRenderableWidget(new GuiInnerScreen(this, 20, 90, 136, 57, () -> {
             ContainedUniverseReactorMultiblockData multiblock = tile.getMultiblock();
-            return List.of(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER.translate(multiblock.getTier()),
+            return List.of(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_STATS.translate(multiblock.isFieldActive()),
+                    MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER.translate(multiblock.getTier()),
                     MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_SATELLITE.translate(multiblock.getSatelliteCount()),
                     MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE.translate(EnergyDisplay.of(multiblock.getPassiveGeneration(true))),
                     MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_HELIUM_PRODUCTION.translate(TextUtils.format(multiblock.getHeliumPerTick(true))));

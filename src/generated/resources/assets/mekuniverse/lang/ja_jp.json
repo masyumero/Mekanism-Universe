@@ -9,6 +9,7 @@
   "cu_reactor.mekuniverse.output.passive_generation": "発電量: %1$s/t",
   "cu_reactor.mekuniverse.output.production": "ヘリウムの生成量: %1$s mB/t",
   "cu_reactor.mekuniverse.output.satellite": "衛星群: %1$s個",
+  "cu_reactor.mekuniverse.output.stats": "封入状態: %1$s",
   "cu_reactor.mekuniverse.output.tier": "恒星段階: %1$s",
   "cu_reactor.mekuniverse.port_mode_change": "バルブモードを%1$sに変更しました",
   "cu_reactor.mekuniverse.port_mode_input": "入力のみ",

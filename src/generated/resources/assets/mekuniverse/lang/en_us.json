@@ -9,6 +9,7 @@
   "cu_reactor.mekuniverse.output.passive_generation": "Passive Generation: %1$s/t",
   "cu_reactor.mekuniverse.output.production": "Helium Production: %1$s mB/t",
   "cu_reactor.mekuniverse.output.satellite": "Satellite: %1$s",
+  "cu_reactor.mekuniverse.output.stats": "Field Active: %1$s",
   "cu_reactor.mekuniverse.output.tier": "Tier: %1$s",
   "cu_reactor.mekuniverse.port_mode_change": "Port mode changed to: %1$s",
   "cu_reactor.mekuniverse.port_mode_input": "input only",

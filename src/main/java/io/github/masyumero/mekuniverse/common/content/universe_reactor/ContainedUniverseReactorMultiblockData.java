@@ -6,6 +6,7 @@ import io.github.masyumero.mekuniverse.api.NBTConstants;
 import io.github.masyumero.mekuniverse.common.config.MekUniverseLoadConfig;
 import io.github.masyumero.mekuniverse.common.inventory.slot.CUReactorInventorySlot;
 import io.github.masyumero.mekuniverse.common.registry.MekUniverseItems;
+import io.github.masyumero.mekuniverse.common.tile.multiblock.TileEntityContainedUniverseReactorCasing;
 import lombok.Getter;
 import lombok.Setter;
 import mekanism.api.Action;
@@ -27,7 +28,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.AABB;
 
 import java.util.List;
@@ -92,7 +92,7 @@ public class ContainedUniverseReactorMultiblockData extends MultiblockData {
 
     private AABB deathZone;
 
-    public ContainedUniverseReactorMultiblockData(BlockEntity tile) {
+    public ContainedUniverseReactorMultiblockData(TileEntityContainedUniverseReactorCasing tile) {
         super(tile);
         gasTanks.add(hydrogenTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> Long.MAX_VALUE, gas -> gas == MekanismGases.HYDROGEN.getChemical(), createSaveAndComparator()));
         gasTanks.add(heliumTank = MultiblockChemicalTankBuilder.GAS.create(this, () -> Long.MAX_VALUE, gas -> gas == MSGases.HELIUM.getChemical(), createSaveAndComparator()));

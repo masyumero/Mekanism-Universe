@@ -68,6 +68,7 @@ public class MekUniverseLangProvider extends BaseLanguageProvider {
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR, "Contained Universe Reactor", "宇宙封入炉");
 
         addENJP(MekanismUniverseLang.OUTPUT_TAB, "Output", "出力");
+        addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_STATS, "Field Active: %1$s", "封入状態: %1$s");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_TIER, "Tier: %1$s", "恒星段階: %1$s");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_SATELLITE, "Satellite: %1$s", "衛星群: %1$s個");
         addENJP(MekanismUniverseLang.CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE, "Passive Generation: %1$s/t", "発電量: %1$s/t");

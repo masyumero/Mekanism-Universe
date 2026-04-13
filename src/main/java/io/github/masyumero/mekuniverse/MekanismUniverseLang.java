@@ -23,6 +23,7 @@ public enum MekanismUniverseLang implements ILangEntry {
     OUTPUT_TAB("cu_reactor", "output"),
     CONTAINED_UNIVERSE_REACTOR_REQUEST_HYDROGEN("cu_reactor", "fuel.hydrogen"),
     CONTAINED_UNIVERSE_REACTOR_REQUEST_HELIUM("cu_reactor", "fuel.helium"),
+    CONTAINED_UNIVERSE_REACTOR_STATS("cu_reactor", "output.stats"),
     CONTAINED_UNIVERSE_REACTOR_TIER("cu_reactor", "output.tier"),
     CONTAINED_UNIVERSE_REACTOR_SATELLITE("cu_reactor", "output.satellite"),
     CONTAINED_UNIVERSE_REACTOR_PASSIVE_RATE("cu_reactor", "output.passive_generation"),
